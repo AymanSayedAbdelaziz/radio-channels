@@ -5,18 +5,54 @@ body {
   margin: 0;
   padding: 20px;
 }
+header {
+  background-color: #007bff; /* Header background color */
+  color: white; /* Text color */
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px 8px 0 0; /* Rounded corners */
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+  display: inline; /* Inline list items */
+  margin: 0 15px; /* Spacing between items */
+}
+
+nav ul li a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: #f8f9fa; /* Lighter color on hover */
+}
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .search-container {
@@ -26,9 +62,16 @@ h1 {
 
 #searchInput {
   padding: 10px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+  border-color: #007bff; /* Highlight border on focus */
+  outline: none; /* Remove default outline */
 }
 
 #channelsContainer {
@@ -53,6 +96,10 @@ h1 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+.channel-box:focus {
+  outline: 2px solid #007bff; /* Focus outline for accessibility */
+}
+
 #audioPlayer {
   margin-top: 20px;
   width: 100%;
@@ -61,4 +108,55 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #searchInput {
+    max-width: 80%; /* Make search input full width on smaller screens */
+    border-radius: 20px;
+  }
+
+  #channelsContainer {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Smaller boxes */
+  }
+
+  .channel-box {
+    padding: 10px; /* Less padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em; /* Smaller font size for mobile */
+  }
+
+  #searchInput {
+    padding: 8px; /* Smaller padding for input */
+  }
+
+  .channel-box {
+    padding: 8px; /* Adjust padding for mobile */
+  }
+
+  #audioPlayer {
+    max-width: 100%; /* Full width audio player */
+  }
+}
+
+
+
+/* ********************************** */
+
+
+
+
+.azkar-item {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
 }
