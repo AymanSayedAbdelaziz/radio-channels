@@ -102,4 +102,7 @@ body {
     width: 400px; /* عرض العمود الأيسر */
     border-right: 1px solid #ccc; /* إعادة الحد الجانبي على الشاشات الكبيرة */
   }
+  .right-column {
+    display: none;
+  }
 }
