@@ -103,7 +103,8 @@ body {
     border-right: 1px solid #ccc; /* إعادة الحد الجانبي على الشاشات الكبيرة */
   }
 }
-@media (max-width: 768px) {
+
+@media (max-width: 600px) {
   .right-column {
     display: none;
   }
