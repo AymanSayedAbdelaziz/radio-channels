@@ -1,73 +1,56 @@
-const dropdown = document.getElementById("dropdown");
-const searchInput = document.getElementById("search-input");
-const audioPlayer = document.getElementById("audio-player");
-const loadingIndicator = document.getElementById("loading-indicator");
-const apiUrl = "https://mp3quran.net/api/v3/radios";
-let allItems = [];
+document.addEventListener("DOMContentLoaded", async () => {
+  const channelsContainer = document.getElementById("channelsContainer");
+  const audioPlayer = document.getElementById("audioPlayer");
+  const searchInput = document.getElementById("searchInput");
 
-// جلب البيانات عند تحميل الصفحة
-async function fetchData() {
+  let channels = [];
+
   try {
-    loadingIndicator.style.display = "block"; // إظهار مؤشر التحميل
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    loadingIndicator.style.display = "none"; // إخفاء مؤشر التحميل
+    const response = await fetch("https://mp3quran.net/api/v3/radios");
+    channels = await response.json();
 
-    if (data.radios && Array.isArray(data.radios)) {
-      allItems = [...data.radios, ...getStaticItems()]; // دمج العناصر الثابتة
-      populateDropdown(allItems);
+    function displayChannels(filteredChannels) {
+      channelsContainer.innerHTML = "";
+      filteredChannels.forEach((channel) => {
+        const channelBox = document.createElement("div");
+        channelBox.className = "channel-box";
+        channelBox.textContent = channel.name;
+
+        channelBox.addEventListener("click", () => {
+          audioPlayer.src = channel.url;
+          audioPlayer.play();
+        });
+
+        channelsContainer.appendChild(channelBox);
+      });
     }
-  } catch (error) {
-    loadingIndicator.style.display = "none"; // إخفاء مؤشر التحميل
-    console.error("Error fetching data:", error);
-    alert("فشل في تحميل البيانات. حاول مرة أخرى لاحقًا.");
-  }
-}
 
-// دالة لإرجاع العناصر الثابتة
-function getStaticItems() {
-  return [{
-    name: "اذاعة القران الكريم من القاهرة",
-    url: "https://stream.radiojar.com/8s5u5tpdtwzuv",
-  }];
-}
+    // Display all channels on load
+    displayChannels(channels.radios);
 
-// دالة لعرض العناصر في القائمة المنسدلة
-function populateDropdown(items) {
-  dropdown.innerHTML = ""; // مسح العناصر السابقة
-  items.forEach((item) => {
-    const option = document.createElement("div");
-    option.className = "dropdown-option";
-    option.textContent = item.name;
-    option.dataset.url = item.url;
-
-    option.addEventListener("click", () => {
-      searchInput.value = item.name;
-      playAudio(item.url);
+    // Add search functionality
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredChannels = channels.radios.filter((channel) =>
+        channel.name.toLowerCase().includes(searchTerm)
+      );
+      displayChannels(filteredChannels);
     });
+  } catch (error) {
+    console.error("Error fetching channels:", error);
+  }
 
-    dropdown.appendChild(option);
-  });
+  // Function to add a static channel
+  function addStaticChannel() {
+    const staticChannel = {
+      name: "إذاعة القران الكريم من القاهرة",
+      url: "https://stream.radiojar.com/8s5u5tpdtwzuv", // Replace with the actual URL
+    };
 
-  dropdown.style.display = items.length ? "block" : "none"; // إظهار القائمة إذا كان هناك عناصر
-}
+    channels.radios.push(staticChannel); // Add the static channel to the channels array
+    displayChannels(channels.radios); // Refresh the displayed channels
+  }
 
-// تحديث القائمة عند الإدخال
-searchInput.addEventListener("input", function () {
-  const filteredItems = allItems.filter((item) =>
-    item.name.toLowerCase().includes(this.value.toLowerCase())
-  );
-  populateDropdown(filteredItems);
+  // Example usage of the addStaticChannel function
+  addStaticChannel();
 });
-
-// إظهار القائمة بالكامل عند التركيز
-searchInput.addEventListener("focus", () => populateDropdown(allItems));
-
-// تشغيل الصوت
-function playAudio(url) {
-  audioPlayer.src = url;
-  audioPlayer.play();
-}
-
-// بدء جلب البيانات
-fetchData();

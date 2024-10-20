@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>مشغل راديو لقنوات القران الكريم </title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <div class="left-column">
-      <input type="text" id="search-input" placeholder="بحث..." />
-      <div id="dropdown"></div>
-      <audio id="audio-player" controls></audio>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قنوات راديو للقران الكريم</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center">استمع إلى قنوات القران الكريم</h1>
+
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن قناة..." />
+      </div>
+
+      <audio id="audioPlayer" controls></audio>
+
+      <div id="channelsContainer"></div>
     </div>
-    <div class="right-column">
-      <!-- محتوى العمود الأيمن -->
-    </div>
-  </div>
-  <div id="loading-indicator">جاري التحميل...</div>
-  <script src="main.js"></script>
-</body>
+
+    <script src="main.js"></script>
+  </body>
 </html>

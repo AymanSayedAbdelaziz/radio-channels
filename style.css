@@ -1,111 +1,64 @@
-/* إعدادات عامة للصفحة */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f8f9fa;
+  color: #333;
   margin: 0;
-  height: 100vh; /* ملء الشاشة */
-}
-
-/* حاوية الصفحة */
-.container {
-  display: flex;
-  flex-direction: column; /* جعل الأعمدة تتراص عموديًا على الشاشات الصغيرة */
-  height: 100%; /* ملء الارتفاع الكامل */
-}
-
-/* عمود البحث */
-.left-column {
-  width: 100%; /* ملء العرض الكامل على الشاشات الصغيرة */
-  max-width: 400px; /* عرض أقصى للعمود الأيسر */
-  padding: 10px 20px;
-  background: #ffffff; /* خلفية بيضاء للعمود الأيسر */
-  border-right: 1px solid #ccc; /* حد يمين */
-  display: flex;
-  flex-direction: column; /* عمود افقي */
-  box-sizing: border-box; /* يشمل padding و border في العرض */
-  height: 100%; /* ملء الارتفاع الكامل */
-}
-
-/* عمود المحتوى الأيمن */
-.right-column {
-  flex: 1; /* ملء المساحة المتاحة */
   padding: 20px;
-  background-color: #eaeaea; /* لون خلفية أفتح */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* ظل خفيف على اليسار */
-  background-image: url("iso-republic-night-full-moon.jpg");
-  background-size: cover;
-  background-position: center;
 }
 
-/* تنسيق حقل البحث */
-#search-input {
-  width: 100%; /* يشغل العرض الكامل للعمود */
-  padding: 10px;
-  margin-bottom: 15px; /* مسافة أسفل حقل البحث */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* ظل خفيف */
-  box-sizing: border-box; /* يشمل padding و border في العرض */
-}
-
-/* قائمة السقوط (المنسدلة) */
-#dropdown {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  flex-grow: 1;
-  overflow-y: auto;
-  display: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 15px;
-  padding-bottom: 10px; /* تم تصحيح الخطأ هنا من "10x" إلى "10px" */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* تنسيق العناصر داخل القائمة */
-#dropdown div {
-  padding: 10px; /* مسافة داخلية */
-  cursor: pointer; /* تغيير المؤشر عند التمرير فوق العناصر */
-  transition: background-color 0.3s; /* تأثير تلاشي عند التمرير */
-  border-bottom: 1px solid #ccc; /* إضافة خط أسفل كل عنصر */
+h1 {
+  margin-bottom: 20px;
 }
 
-/* إزالة الحدود من العنصر الأخير */
-#dropdown div:last-child {
-  border-bottom: none; /* إزالة الخط من العنصر الأخير */
-}
-
-/* تأثير عند تمرير الماوس فوق العناصر */
-#dropdown div:hover {
-  background-color: #f0f0f0; /* خلفية رمادية فاتحة عند التمرير */
-}
-
-/* تنسيق مشغل الصوت */
-#audio-player {
-  width: 100%;
-  height: 100%;
-}
-
-/* مؤشر التحميل */
-#loading-indicator {
+.search-container {
   text-align: center;
-  color: #888;
-  margin-top: 10px;
-  display: none; /* يمكن إظهاره باستخدام JavaScript */
+  margin-bottom: 20px;
 }
 
-/* استجابة الشاشة */
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row; /* الأعمدة تتراص أفقيًا على الشاشات الكبيرة */
-  }
-  .left-column {
-    width: 400px; /* عرض العمود الأيسر */
-    border-right: 1px solid #ccc; /* إعادة الحد الجانبي على الشاشات الكبيرة */
-  }
+#searchInput {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-@media (max-width: 600px) {
-  .right-column {
-    display: none;
-  }
+#channelsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.channel-box {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.channel-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#audioPlayer {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
