@@ -43,10 +43,16 @@ if (window.location.pathname.endsWith("index.html")) {
 
     // Function to add a static channel
     function addStaticChannel() {
-      const staticChannel = {
-        name: "إذاعة القران الكريم من القاهرة",
-        url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
-      };
+      const staticChannel = [
+        {
+          name: "إذاعة القران الكريم من القاهرة",
+          url: "https://stream.radiojar.com/8s5u5tpdtwzuv", // Replace with the actual URL
+        },
+        {
+          name: "إذاعة الشيخ الشعراوى رحة الله عليه",
+          url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
+        },
+      ];
 
       channels.radios.push(staticChannel); // Add the static channel to the channels array
       displayChannels(channels.radios); // Refresh the displayed channels
