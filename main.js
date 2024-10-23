@@ -53,7 +53,7 @@ if (window.location.pathname.endsWith("index.html")) {
           url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
         },
       ];
-      staticChannels.forEach((channel) => {
+      staticChannel.forEach((channel) => {
         channels.radios.push(channel);
       });
       displayChannels(channels.radios); // Refresh the displayed channels
