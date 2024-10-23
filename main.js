@@ -52,6 +52,7 @@ if (window.location.pathname.endsWith("index.html")) {
           name: "إذاعة الشيخ الشعراوى رحة الله عليه",
           url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
         },
+        {
       ];
       staticChannel.forEach((channel) => {
         channels.radios.push(channel);
