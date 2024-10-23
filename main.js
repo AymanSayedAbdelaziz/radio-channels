@@ -45,7 +45,7 @@ if (window.location.pathname.endsWith("index.html")) {
     function addStaticChannel() {
       const staticChannel = {
         name: "إذاعة القران الكريم من القاهرة",
-        url: "https://stream.radiojar.com/8s5u5tpdtwzuv", // Replace with the actual URL
+        url: "https://www.liveradiu.com/2021/09/radio-sheikh-shaarawy.html", // Replace with the actual URL
       };
 
       channels.radios.push(staticChannel); // Add the static channel to the channels array
