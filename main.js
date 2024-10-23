@@ -54,13 +54,10 @@ if (window.location.pathname.endsWith("index.html")) {
         },
       ];
       staticChannels.forEach(channel => {
-        channels.push(channel);
-        displayChannel(channel); // عرض القناة
+        channels.radios.push(channel); // Add static channel to existing array
       });
-    
-      // channels.radios.push(staticChannel); // Add the static channel to the channels array
-      // displayChannels(channels.radios); // Refresh the displayed channels
-    }
+
+      displayChannels(channels.radios); // Refresh displayed channels    }
 
     // Example usage of the addStaticChannel function
     addStaticChannel();
