@@ -56,7 +56,7 @@ if (window.location.pathname.endsWith("index.html")) {
       staticChannels.forEach(channel => {
         channels.radios.push(channel); // Add static channel to existing array
       });
-
+      console.log(channels.radios);
       displayChannels(channels.radios); // Refresh displayed channels    }
 
     // Example usage of the addStaticChannel function
