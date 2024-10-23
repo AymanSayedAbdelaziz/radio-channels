@@ -53,6 +53,29 @@ if (window.location.pathname.endsWith("index.html")) {
           url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
         },
         {
+          name: "اذاعة ابتهالات الشيخ سيد النقشبندي بث مباشر",
+          url: "https://3vh.liveradiu.com:8000/naqshbandi.mp3",
+        },
+        {
+          name: "اذاعة الشيخ محمود خليل الحصري المصحف المرتل",
+          url: "https://qurango.net/radio/mahmoud_khalil_alhussary",
+        },
+        {
+          name: "اذاعة الشيخ محمد رفعت للقرآن الكريم بث مباشر",
+          url: "https://3vh.liveradiu.com:8000/mohamed-refaat.mp3",
+        },
+        {
+          name: "اذاعة ابتهالات الشيخ نصر الدين طوبار بث مباشر",
+          url: "https://3vh.liveradiu.com:8000/nasreddine-tobar.mp3",
+        },
+        {
+          name: "راديو العلم والايمان د. مصطفى محمود بث مباشر استماع جميع حلقات البرنامج",
+          url: "https://3vh.liveradiu.com:8000/mustafa-mahmoud.mp3",
+        },
+        {
+          name: "اذاعة الرقية الشرعية لعلاج المس والحسد بث مباشر",
+          url: "https://qurango.net/radio/tarateel",
+        },
       ];
       staticChannel.forEach((channel) => {
         channels.radios.push(channel);
