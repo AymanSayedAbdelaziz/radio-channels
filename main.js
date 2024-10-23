@@ -53,11 +53,11 @@ if (window.location.pathname.endsWith("index.html")) {
           url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
         },
       ];
-      staticChannels.forEach(channel => {
-        channels.radios.push(channel); // Add static channel to existing array
+      staticChannels.forEach((channel) => {
+        channels.radios.push(channel);
       });
-      console.log(channels.radios);
-      displayChannels(channels.radios); // Refresh displayed channels    }
+      displayChannels(channels.radios); // Refresh the displayed channels
+    }
 
     // Example usage of the addStaticChannel function
     addStaticChannel();
