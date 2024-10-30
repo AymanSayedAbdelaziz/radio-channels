@@ -3,6 +3,7 @@ if (window.location.pathname.endsWith("index.html")) {
     const channelsContainer = document.getElementById("channelsContainer");
     const audioPlayer = document.getElementById("audioPlayer");
     const searchInput = document.getElementById("searchInput");
+    const channelName = document.getElementById("channelName");
 
     let channels = [];
 
@@ -18,6 +19,8 @@ if (window.location.pathname.endsWith("index.html")) {
           channelBox.textContent = channel.name;
 
           channelBox.addEventListener("click", () => {
+            channelName.innerHTML = "تستمع الان الى : " + channel.name;
+            channelName.style.textAlign = "center";
             audioPlayer.src = channel.url;
             audioPlayer.play();
           });
