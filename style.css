@@ -8,13 +8,10 @@ body {
 
 header {
   background-color: #007bff;
-  /* Header background color */
   color: white;
-  /* Text color */
   padding: 20px;
   text-align: center;
   border-radius: 8px 8px 0 0;
-  /* Rounded corners */
 }
 
 header h1 {
@@ -27,29 +24,22 @@ nav {
 
 nav ul {
   list-style: none;
-  /* Remove bullet points */
   padding: 0;
-  /* Remove default padding */
 }
 
 nav ul li {
   display: inline;
-  /* Inline list items */
   margin: 0 15px;
-  /* Spacing between items */
 }
 
 nav ul li a {
   color: white;
-  /* Link color */
   text-decoration: none;
-  /* Remove underline */
   transition: color 0.2s;
 }
 
 nav ul li a:hover {
   color: #f8f9fa;
-  /* Lighter color on hover */
 }
 
 .container {
@@ -82,9 +72,7 @@ h1 {
 
 #searchInput:focus {
   border-color: #007bff;
-  /* Highlight border on focus */
   outline: none;
-  /* Remove default outline */
 }
 
 #channelName {
@@ -116,7 +104,6 @@ h1 {
 
 .channel-box:focus {
   outline: 2px solid #007bff;
-  /* Focus outline for accessibility */
 }
 
 #audioPlayer {
@@ -133,54 +120,82 @@ h1 {
 @media (max-width: 768px) {
   #searchInput {
     max-width: 80%;
-    /* Make search input full width on smaller screens */
     border-radius: 20px;
   }
 
   #channelsContainer {
     grid-template-columns: repeat(auto-fill,
         minmax(200px, 1fr));
-    /* Smaller boxes */
   }
 
   .channel-box {
     padding: 10px;
-    /* Less padding for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   h1 {
     font-size: 1.5em;
-    /* Smaller font size for mobile */
   }
 
   #searchInput {
     padding: 8px;
-    /* Smaller padding for input */
   }
 
   .channel-box {
     padding: 8px;
-    /* Adjust padding for mobile */
   }
 
   #audioPlayer {
     max-width: 100%;
-    /* Full width audio player */
   }
 }
 
-
-
 /* ********************************** */
+#azkar-container {
+  direction: rtl;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+#azkar-container h2 {
+  font-size: 1.5rem;
+  color: #007bff;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
 
+#azkar-container h2:hover {
+  color: #0056b3;
+}
 
+.category-azkar {
+  display: none;
+  margin-bottom: 20px;
+}
 
-.azkar-item {
-  border: 1px solid #ccc;
-  margin: 10px 0;
+.category-azkar.show {
+  display: block;
+}
+
+.zekr {
   padding: 10px;
+  margin: 5px 0;
+  background-color: #e9ecef;
   border-radius: 5px;
+  border-right: 4px solid #007bff;
+  font-size: 1.25rem;
+  color: #333;
+  line-height: 30px;
+}
+
+.category-azkar {
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
 }

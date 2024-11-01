@@ -29,10 +29,8 @@ if (window.location.pathname.endsWith("index.html")) {
         });
       }
 
-      // Display all channels on load
       displayChannels(channels.radios);
 
-      // Add search functionality
       searchInput.addEventListener("input", () => {
         const searchTerm = searchInput.value.toLowerCase();
         const filteredChannels = channels.radios.filter((channel) =>
@@ -44,16 +42,15 @@ if (window.location.pathname.endsWith("index.html")) {
       console.error("Error fetching channels:", error);
     }
 
-    // Function to add a static channel
     function addStaticChannel() {
       const staticChannel = [
         {
           name: "إذاعة القران الكريم من القاهرة",
-          url: "https://stream.radiojar.com/8s5u5tpdtwzuv", // Replace with the actual URL
+          url: "https://stream.radiojar.com/8s5u5tpdtwzuv", 
         },
         {
           name: "إذاعة الشيخ الشعراوى رحة الله عليه",
-          url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", // Replace with the actual URL
+          url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", 
         },
         {
           name: "اذاعة ابتهالات الشيخ سيد النقشبندي بث مباشر",
@@ -83,10 +80,9 @@ if (window.location.pathname.endsWith("index.html")) {
       staticChannel.forEach((channel) => {
         channels.radios.push(channel);
       });
-      displayChannels(channels.radios); // Refresh the displayed channels
+      displayChannels(channels.radios); 
     }
 
-    // Example usage of the addStaticChannel function
     addStaticChannel();
   });
 }
@@ -97,29 +93,39 @@ if (window.location.pathname.endsWith("Adhkar.html")) {
       const response = await fetch(
         "https://raw.githubusercontent.com/rn0x/Adhkar-json/refs/heads/main/adhkar.json"
       );
-      const data = await response.json();
+      const azkarList = await response.json();
+      const categoryContainer = document.getElementById("azkar-container");
 
-      const azkarList = document.getElementById("azkar-list");
-      console.log(data);
-      data.forEach((item) => {
-        item.array.forEach((azkar) => {
+      azkarList.forEach((item) => {
+        const categoryTitle = document.createElement("h2");
+
+        const zekrCount = item.array.length;
+        categoryTitle.textContent = `${item.category} (${zekrCount})`;
+
+        categoryContainer.appendChild(categoryTitle);
+
+        const azkarList = document.createElement("div");
+        azkarList.classList.add('category-azkar');
+
+        item.array.forEach((zekr, index) => {
           const azkarItem = document.createElement("div");
-          azkarItem.classList.add("azkar-item");
+          azkarItem.classList.add('zekr');
 
-          azkarItem.innerHTML = `
-                    <h3>ذكر ${azkar.id}</h3>
-                    <p>${azkar.text}</p>
-                    <p>${item.category}</p>
-                `;
-
+          azkarItem.textContent = `${index + 1}` + " - " + ` ${zekr.text}`;
           azkarList.appendChild(azkarItem);
         });
+
+        categoryContainer.appendChild(azkarList);
+
+        categoryTitle.addEventListener("click", () => {
+          azkarList.classList.toggle('show');
+        });
       });
+
     } catch (error) {
       console.error("خطأ في جلب البيانات:", error);
     }
   }
 
-  // تأكد من استدعاء الدالة لجلب البيانات
   fetchData();
 }
