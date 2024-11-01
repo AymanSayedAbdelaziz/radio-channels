@@ -46,11 +46,11 @@ if (window.location.pathname.endsWith("index.html")) {
       const staticChannel = [
         {
           name: "إذاعة القران الكريم من القاهرة",
-          url: "https://stream.radiojar.com/8s5u5tpdtwzuv", 
+          url: "https://stream.radiojar.com/8s5u5tpdtwzuv",
         },
         {
           name: "إذاعة الشيخ الشعراوى رحة الله عليه",
-          url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3", 
+          url: "https://3vh.liveradiu.com:8000/el-shaarawy.mp3",
         },
         {
           name: "اذاعة ابتهالات الشيخ سيد النقشبندي بث مباشر",
@@ -80,7 +80,7 @@ if (window.location.pathname.endsWith("index.html")) {
       staticChannel.forEach((channel) => {
         channels.radios.push(channel);
       });
-      displayChannels(channels.radios); 
+      displayChannels(channels.radios);
     }
 
     addStaticChannel();
@@ -128,4 +128,33 @@ if (window.location.pathname.endsWith("Adhkar.html")) {
   }
 
   fetchData();
+}
+
+if (window.location.pathname.endsWith("contact.html")) {
+
+  // accounts.js
+  const accounts = [
+    { id: 1, name: "Gmail", email: "Aymansayedabdulaziz@gmail.com", link: "#" },
+    { id: 2, name: "GitHub", email: "https://github.com/AymanSayedAbdelaziz", link: "https://github.com/AymanSayedAbdelaziz" },
+    { id: 3, name: "LinkedIn", email: "https://www.linkedin.com/in/aymansayedabdelaziz/", link: "https://www.linkedin.com/in/aymansayedabdelaziz" },
+  ];
+
+
+  function displayAccounts() {
+    const accountsList = document.getElementById('accounts-list');
+    accounts.forEach(account => {
+      const accountItem = document.createElement('div');
+      accountItem.innerHTML = `
+          <a href="${account.link}" target="_blank" style="text-decoration: none; color: inherit;">
+              <p>Name: ${account.name}</p>
+              <p>Email: ${account.email}</p>
+          </a>
+      `;
+      accountsList.appendChild(accountItem);
+    });
+  }
+
+  window.onload = displayAccounts;
+
+
 }
