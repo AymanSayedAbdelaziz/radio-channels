@@ -207,7 +207,7 @@ h1 {
   text-align: center;
   color: #333;
 }
-.container {
+.container-cont {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
