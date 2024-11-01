@@ -129,32 +129,3 @@ if (window.location.pathname.endsWith("Adhkar.html")) {
 
   fetchData();
 }
-
-if (window.location.pathname.endsWith("contact.html")) {
-
-  // accounts.js
-  const accounts = [
-    { id: 1, name: "Gmail", email: "Aymansayedabdulaziz@gmail.com", link: "#" },
-    { id: 2, name: "GitHub", email: "https://github.com/AymanSayedAbdelaziz", link: "https://github.com/AymanSayedAbdelaziz" },
-    { id: 3, name: "LinkedIn", email: "https://www.linkedin.com/in/aymansayedabdelaziz/", link: "https://www.linkedin.com/in/aymansayedabdelaziz" },
-  ];
-
-
-  function displayAccounts() {
-    const accountsList = document.getElementById('accounts-list');
-    accounts.forEach(account => {
-      const accountItem = document.createElement('div');
-      accountItem.innerHTML = `
-          <a href="${account.link}" target="_blank" style="text-decoration: none; color: inherit;">
-              <p>Name: ${account.name}</p>
-              <p>Email: ${account.email}</p>
-          </a>
-      `;
-      accountsList.appendChild(accountItem);
-    });
-  }
-
-  window.onload = displayAccounts;
-
-
-}

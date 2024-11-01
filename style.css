@@ -203,51 +203,42 @@ h1 {
 
 /* ********************************** */
 
-/* Main Content Styles */
 h1 {
   text-align: center;
-  margin: 20px 0;
+  color: #333;
 }
-
-
-/* Accounts List Styles */
-#accounts-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 15px; /* Space between cards */
-  padding: 20px;
-  max-width: 1400px;
-  margin: 0 auto; /* Center the list */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Individual Account Card Styles */
 #accounts-list div {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  width: 300px;
+  text-align: center;
   transition: transform 0.2s;
-  overflow: auto;
 }
-
-#accounts-list div:hover {
-  transform: scale(1.02); /* Slight zoom effect on hover */
+.card:hover {
+  transform: translateY(-5px);
 }
-
-/* Text Styles Inside Account Card */
-#accounts-list div p {
+.card a {
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: bold;
+}
+.card a:hover {
+  text-decoration: underline;
+}
+.account-name {
   margin: 10px 0;
-  font-size: 16px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  nav ul {
-      flex-direction: column; /* Stack links on smaller screens */
-      align-items: center;
-  }
-
-  nav li {
-      margin-bottom: 10px; /* Spacing between items */
-  }
+  font-size: 1.2em;
+  color: #555;
 }
