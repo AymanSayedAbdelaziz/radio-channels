@@ -56,6 +56,13 @@ h1 {
   text-align: center;
 }
 
+#clock {
+  text-align: center;
+  font-size: medium;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
 .search-container {
   text-align: center;
   margin-bottom: 20px;
@@ -207,6 +214,7 @@ h1 {
   text-align: center;
   color: #333;
 }
+
 .container-cont {
   display: flex;
   flex-wrap: wrap;
@@ -215,6 +223,7 @@ h1 {
   max-width: 1200px;
   margin: auto;
 }
+
 .card {
   background-color: white;
   border-radius: 8px;
@@ -224,17 +233,21 @@ h1 {
   text-align: center;
   transition: transform 0.2s;
 }
+
 .card:hover {
   transform: translateY(-5px);
 }
+
 .card a {
   text-decoration: none;
   color: #0073e6;
   font-weight: bold;
 }
+
 .card a:hover {
   text-decoration: underline;
 }
+
 .account-name {
   margin: 10px 0;
   font-size: 1.2em;

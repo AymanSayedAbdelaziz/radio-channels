@@ -1,4 +1,26 @@
 if (window.location.pathname.endsWith("index.html")) {
+  function updateClock() {
+    const now = new Date();
+    // Format hours, minutes, and seconds
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+
+    // Determine AM or PM and convert to 12-hour format
+    const period = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12; // Convert to 12-hour format, treat 0 as 12
+    // Pad hours to always show two digits
+    const formattedHours = String(hours).padStart(2, "0");
+
+    // Update the clock display
+    const clock = document.getElementById("clock");
+    clock.innerText = `${formattedHours}:${minutes}:${seconds} ${period}`;
+  }
+
+  // Start the clock
+  setInterval(updateClock, 1000);
+  updateClock();
+
   document.addEventListener("DOMContentLoaded", async () => {
     const channelsContainer = document.getElementById("channelsContainer");
     const audioPlayer = document.getElementById("audioPlayer");
