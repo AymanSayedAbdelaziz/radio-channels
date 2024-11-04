@@ -216,9 +216,11 @@ h1 {
 }
 
 .container-cont {
+  height: calc(100vh - 170px  - 124px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   gap: 20px;
   max-width: 1200px;
   margin: auto;
@@ -232,6 +234,7 @@ h1 {
   width: 300px;
   text-align: center;
   transition: transform 0.2s;
+  height: 80px;
 }
 
 .card:hover {
@@ -252,4 +255,8 @@ h1 {
   margin: 10px 0;
   font-size: 1.2em;
   color: #555;
+}
+#footer{
+  text-align: center;
+  padding: 10px;
 }

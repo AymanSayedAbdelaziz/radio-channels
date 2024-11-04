@@ -1,3 +1,4 @@
+
 if (window.location.pathname.endsWith("index.html")) {
   function updateClock() {
     const now = new Date();
@@ -110,6 +111,9 @@ if (window.location.pathname.endsWith("index.html")) {
 }
 
 if (window.location.pathname.endsWith("Adhkar.html")) {
+
+
+
   async function fetchData() {
     try {
       const response = await fetch(
@@ -151,3 +155,28 @@ if (window.location.pathname.endsWith("Adhkar.html")) {
 
   fetchData();
 }
+
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
+fetch("footer.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+
+
+
+
+const array = [1, 2, 3, 4, 5];
+array.push(6);
+array.push("78");
+console.log(array);
+
+
+
+const obj = { name: 'Alice' };
+obj.name = 'ayman';
+console.log(obj);
